@@ -3,50 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>suma · Share Bills. Easy.</title>
-<meta name="description" content="suma keeps one shared list of who paid and who owes, so your next trip never ends in awkward maths. See every feature and learn how to use it." />
+<title>suma</title>
+<meta name="description" content="suma is a tool to organize costs for events. Add bills, payments and settle dues." />
 <meta name="theme-color" content="#0A0B10" />
+<link rel="icon" id="faviconLink" href="https://suma3m.netlify.app/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Satisfy&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
-
-<!--
-  ============================================================
-  HOW TO ADD YOUR APP SCREENS
-  ============================================================
-  Every phone on this page is a "slot":
-
-    <div class="phone-screen" data-slot="sign-up"> ... </div>
-
-  Inside each slot there is a grey placeholder (class "slot-empty").
-  Once you add your screen, the placeholder hides itself.
-
-  OPTION A (recommended): save each screen as its own HTML file,
-  for example screens/sign-up.html, then drop this inside the slot:
-
-    <iframe src="screens/sign-up.html" title="Sign up screen" loading="lazy"></iframe>
-
-  The iframe is rendered at 390 x 844 and scaled to fit the phone.
-  If your screens use a different size, add data-w and data-h to the
-  slot, for example: <div class="phone-screen" data-w="360" data-h="780">
-
-  OPTION B: paste the screen markup (with its own CSS scoped to it)
-  inside a wrapper, so it scales the same way:
-
-    <div class="embed"> ...your screen HTML... </div>
-
-  Slot names to fill, in page order:
-    group-home, sign-up, check-email, create-group, invite, join-claim,
-    add-bill, timeline, balances, settle-up, add-payment, payment-ticks,
-    manage-person, theme-picker
-  (All 14 are now filled with mockups, embedded with iframe srcdoc.
-   To swap one, replace the iframe's srcdoc with src="screens/<name>.html".)
-
-  EDIT THESE TWO LINKS BEFORE PUBLISHING:
-    1. App link:     search for  https://suma.n3m.in
-    2. Contact link: search for  https://example.com/contact
-  ============================================================
--->
 
 <style>
   :root {
@@ -145,7 +108,7 @@
     color: var(--gold); font-weight: 600; font-size: .82rem;
     letter-spacing: .14em; text-transform: uppercase;
   }
-  .eyebrow::before { content: ""; width: 22px; height: 2px; background: var(--gold); border-radius: 2px; }
+  .eyebrow::before { content: ""; width: 0px; height: 2px; background: var(--gold); border-radius: 2px; }
   .hero h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 700; margin-top: .6em; }
   .hero h1 em { font-style: normal; color: var(--gold); }
   .hero .lede { color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); margin-top: 1.1em; max-width: 34em; }
@@ -369,6 +332,19 @@
     .js .reveal { opacity: 1; transform: none; transition: none; }
     .btn-gold:hover { transform: none; }
   }
+  
+  /* ---------- Typewrite style hero ---------- */
+  .typer { min-height: 2.3em; text-wrap: wrap; }
+  .typed em { font-style: normal; color: var(--gold); }
+  .caret {
+    display: inline-block; width: .06em; height: .88em; margin-left: .08em;
+    background: var(--gold); vertical-align: -.06em;
+    animation: caret-blink 1s steps(1) infinite;
+  }
+  @keyframes caret-blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .caret { animation: none; } }
+
+
 </style>
 </head>
 <body>
@@ -388,7 +364,7 @@
     <nav class="nav-links" aria-label="Page sections">
       <a class="hide-sm" href="#features">Features</a>
       <a class="hide-sm" href="#guide">Quick guide</a>
-      <a class="btn btn-gold btn-sm" href="https://suma.n3m.in">Start a trip</a>
+      <a class="btn btn-gold btn-sm" href="https://suma.n3m.in">Create group</a>
     </nav>
   </div>
 </header>
@@ -400,16 +376,17 @@
     <div class="wrap hero-grid">
       <div class="reveal">
         <span class="eyebrow">Share Bills. Easy.</span>
-        <h1>Split the trip, not the <em>friendship</em>.</h1>
-        <p class="lede">suma keeps one shared list of who paid and who owes, so nobody has to untangle receipts at the airport. Add a bill in seconds, watch everyone's balance update, and settle up when the trip is over.</p>
+		<h1 class="typer" aria-label="Create groups, add bills, see balance, view history, settle dues, verify payments">
+		  <span class="typed" aria-hidden="true" data-phrases='[["Create","groups"],["Invite","friends"],["Send","invite code"],["Send","group name"], ["Add","members"], ["Add","bills"], ["See","balance"], ["Verbose","theme"], ["Minimal","theme"], ["View","history"], ["See","timeline"], ["Verify","payments"], ["Make","admin"], ["Edit","bills"], ["Split","bills"], ["Remove","members"], ["Settle","dues"]]'>Create <em>groups</em></span><span class="caret" aria-hidden="true"></span>
+		</h1>
+        <p class="lede">One shared list of who paid and who owes. Add a bill in seconds, see balance and settle when the event is over</p>
         <div class="cta-row">
-          <a class="btn btn-gold" href="https://suma.n3m.in">Start your next trip</a>
+          <a class="btn btn-gold" href="https://suma.n3m.in">Create group</a>
           <a class="btn btn-ghost" href="#features">See how it works</a>
         </div>
         <div class="proof">
-          <span>Works in any browser</span>
-          <span>Installs like an app</span>
-          <span>Everyone sees the same numbers</span>
+          <span>Works in all browsers</span>
+          <span>No app install</span>
         </div>
       </div>
 
@@ -1022,7 +999,7 @@ html,body{margin:0!important;padding:0!important;background:transparent!importan
     &lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
           </div>
         </div>
-        <figcaption>A group at a glance: your balance and the latest activity</figcaption>
+        <figcaption>Group shows your balance and the latest activity</figcaption>
       </figure>
     </div>
   </section>
@@ -1031,14 +1008,13 @@ html,body{margin:0!important;padding:0!important;background:transparent!importan
   <section class="strip" aria-labelledby="how-h">
     <div class="wrap">
       <div class="section-head reveal" style="margin-bottom: 2rem;">
-        <span class="eyebrow">The whole idea</span>
-        <h2 id="how-h">Four steps, start to finish</h2>
+        <span class="eyebrow">Easy to use</span>
       </div>
       <ol class="steps4 reveal">
-        <li><h3>Create a group</h3><p>One group per trip, flat or dinner.</p></li>
-        <li><h3>Invite your friends</h3><p>Share a link or a code. They join in a tap.</p></li>
-        <li><h3>Add bills as you go</h3><p>Pick who paid and who shares it.</p></li>
-        <li><h3>Settle up</h3><p>See exactly who pays whom, then tick it off.</p></li>
+        <li><h3>Create a group</h3><p>One group per event. A trip, shared apartment or dinner.</p></li>
+        <li><h3>Add members to group</h3><p>Share a link and code. They join with member name.</p></li>
+        <li><h3>Add bills as you go</h3><p>Select who paid and who shares it. All edits are saved.</p></li>
+        <li><h3>Settle up</h3><p>See balances. Confirm payments sent and received.</p></li>
       </ol>
     </div>
   </section>
@@ -1047,24 +1023,22 @@ html,body{margin:0!important;padding:0!important;background:transparent!importan
   <section class="features" id="features" aria-labelledby="feat-h">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">Every feature</span>
-        <h2 id="feat-h">Everything you need, nothing you do not</h2>
-        <p>Each feature below comes with the screen it lives on and a short walk-through, so it doubles as a tutorial for anyone already using suma.</p>
+        <span class="eyebrow">Group Roles</span>
+        <h2 id="feat-h">Admin or Member</h2>
+        <p>Features below are for all group members (everyone) or only for group admin.</p>
       </div>
-
+	  
       <!-- 01 ACCOUNT -->
       <article class="feature reveal" id="account">
         <div class="copy">
           <span class="num"><b>01</b> Get started</span>
-          <h2>Sign up with just an email</h2>
-          <p>Create an account with an email and password, tap the link we send you, then add your name so friends recognise you. If a sign-in does not work, suma moves you to Sign up with your details already filled in.</p>
-          <div class="chips"><span class="chip">Everyone</span><span class="chip plain">Email verification</span></div>
+          <h2>Sign up with email.</h2>
+          <div class="chips"><span class="chip">Everyone</span></div>
           <div class="try">
-            <h3>Try it</h3>
             <ol>
               <li>Enter your email and a password, then tap <b>Create account</b>.</li>
               <li>Open the email we sent and tap the link.</li>
-              <li>Back in the app, tap <b>I verified. Continue</b> and type your name.</li>
+              <li>Back in the suma, tap <b>I verified. Continue</b> and type your name.</li>
             </ol>
             <p class="tip"><b>Did not get the email?</b> Tap <b>Resend email</b> on the Check your email screen.</p>
           </div>
@@ -2144,7 +2118,7 @@ html,body{margin:0!important;padding:0!important;background:transparent!importan
             &lt;/div&gt;
           &lt;/div&gt;
 
-          &lt;button class=&quot;pill-btn&quot; style=&quot;width:100%;margin-bottom:16px&quot;&gt;I&#x27;ve verified my email&lt;/button&gt;
+          &lt;button class=&quot;pill-btn&quot; style=&quot;width:100%;margin-bottom:16px&quot;&gt;I verified. Continue. &lt;/button&gt;
           &lt;div class=&quot;resend-row&quot;&gt;
             &lt;span&gt;Didn&#x27;t get it?&lt;/span&gt;
             &lt;button&gt;Resend email&lt;/button&gt;
@@ -2162,16 +2136,16 @@ html,body{margin:0!important;padding:0!important;background:transparent!importan
       <!-- 02 CREATE GROUP -->
       <article class="feature flip reveal" id="create-group">
         <div class="copy">
-          <span class="num"><b>02</b> Start a group</span>
-          <h2>One group for every trip</h2>
-          <p>Name your group and set it up in a few taps. You become its admin, marked with a star, and the group appears on your home screen with its latest activity and your balance.</p>
-          <div class="chips"><span class="chip">Everyone</span><span class="chip plain">You become admin</span></div>
+          <span class="num"><b>02</b> Create a group</span>
+          <h2>Name your group, add members.</h2>
+          <p>You create group, you become group admin automatically. Group appears on your home screen. Click group name to see group activity and balance.</p>
+          <div class="chips"><span class="chip">Everyone</span></div>
           <div class="try">
-            <h3>Try it</h3>
             <ol>
               <li>On Home, tap <b>New group</b> (the plus button in the Minimal theme).</li>
-              <li>Give it a name, like "Goa 2026", and save.</li>
+              <li>Give it a name, like "Goa 2026" and save.</li>
               <li>Spot the star next to your name. That means you are the admin.</li>
+              <li>Add member names to the group. Only Admin can add.</li>
             </ol>
           </div>
         </div>
@@ -2758,18 +2732,17 @@ svg.ic.star{fill:var(--gold);stroke:var(--gold);width:13px;height:13px}
       <!-- 03 INVITE -->
       <article class="feature reveal" id="invite">
         <div class="copy">
-          <span class="num"><b>03</b> Bring everyone in</span>
-          <h2>Invite friends with a link or a code</h2>
-          <p>Every group has an invite code. Friends open your link, or type the code with the group name, and then pick which person in the group is them. You can also add people by name before they have joined.</p>
-          <div class="chips"><span class="chip">Admin adds people</span><span class="chip plain">Friends join with a code</span></div>
+          <span class="num"><b>03</b>Members join your group</span>
+          <h2>Send group name, link or a code</h2>
+          <p>Every group has an invite code. Friends open your link or type the code and group name. They will pick available member name in the group that you created in step 2. You should add person name to group before sending event link or code.</p>
+          <div class="chips"><span class="chip">Only Admin can add memebers</span><span class="chip plain">Anyone can join with a code</span></div>
           <div class="try">
-            <h3>Try it</h3>
             <ol>
-              <li>Open the group's info page and tap <b>Add person</b>.</li>
-              <li>Type their name, then share the invite link or code.</li>
-              <li>Your friend signs up, enters the code, and claims their name.</li>
+              <li>Open the group info page and tap <b>Add person</b>.</li>
+              <li>Type their name. Share the invite link or code.</li>
+              <li>Your friend signs up, enters the code and will claim their name.</li>
             </ol>
-            <p class="tip"><b>Tip:</b> add the whole crew first. You can attach them to older bills afterwards.</p>
+            <p class="tip"><b>Tip:</b> add all members first. You can assign them to older bills afterwards.</p>
           </div>
         </div>
         <div class="shots pair">
@@ -3915,19 +3888,18 @@ html,body{margin:0!important;padding:0!important;background:transparent!importan
       <!-- 04 ADD BILL -->
       <article class="feature flip reveal" id="add-bill">
         <div class="copy">
-          <span class="num"><b>04</b> The everyday move</span>
-          <h2>Add a bill in about ten seconds</h2>
-          <p>Name it, type the amount, and choose the date. Tap a face to say who paid, then tap the faces who share it. The amount is split equally among everyone you leave switched on.</p>
+          <span class="num"><b>04</b>Add bills to group</span>
+          <h2>Easy to add bill in few steps</h2>
+          <p>Name bill, type amount, who paid and who owes. The amount is split equally among selected names.</p>
           <div class="chips"><span class="chip">Everyone</span><span class="chip plain">Creator or admin can edit</span></div>
           <div class="try">
-            <h3>Try it</h3>
             <ol>
               <li>Inside a group, tap <b>Add bill</b>.</li>
               <li>Fill in the bill name, amount and date.</li>
-              <li>Under <b>Paid by</b>, swipe the row and tap the payer.</li>
-              <li>Under <b>Split with</b>, tap a face to include or leave someone out, then <b>Save</b>.</li>
+              <li>Under <b>Paid by</b>, select the payer name.</li>
+              <li>Under <b>Split with</b>, select names to include, tap <b>Save</b>.</li>
             </ol>
-            <p class="tip"><b>Made a mistake?</b> The person who added the bill, or an admin, can edit or remove it.</p>
+            <p class="tip"><b>Made a mistake?</b> The person who added the bill or admin can edit or remove bills.</p>
           </div>
         </div>
         <div class="shots">
@@ -4509,12 +4481,11 @@ html,body{margin:0!important;padding:0!important;background:transparent!importan
       <!-- 05 TIMELINE -->
       <article class="feature reveal" id="timeline">
         <div class="copy">
-          <span class="num"><b>05</b> Full history</span>
+          <span class="num"><b>05</b>See Group Activity Timeline</span>
           <h2>Every bill and payment, in order</h2>
-          <p>The group page is a live timeline of everything that has happened. Each card says who paid, who it was for, and when. Changed items are labelled <b>Edited</b>, so nothing happens quietly. When someone adds a bill, everyone's screen updates on its own.</p>
+          <p>The group page is a live timeline of everything that has happened. Each card says who paid, who it was for and when. Changed items are labelled <b>Edited</b>. Nothing happens quietly. Every edit is transparent. When someone adds a bill, everyone see it in their phone.</p>
           <div class="chips"><span class="chip">Everyone</span><span class="chip plain">Live updates</span></div>
           <div class="try">
-            <h3>Try it</h3>
             <ol>
               <li>Open any group from Home.</li>
               <li>Scroll the timeline to see bills and payments as cards.</li>
@@ -5104,15 +5075,14 @@ html,body{margin:0!important;padding:0!important;background:transparent!importan
       <!-- 06 BALANCES -->
       <article class="feature flip reveal" id="settle-up">
         <div class="copy">
-          <span class="num"><b>06</b> No more maths</span>
+          <span class="num"><b>06</b>See Balance</span>
           <h2>See who owes whom, then settle up</h2>
-          <p>The info page shows the group total and a balance for every person. Green means they are owed money, red means they owe. Tap <b>Settle up</b> to see the simplest way to square everything. Amounts are kept in exact cents, so totals always add up.</p>
-          <div class="chips"><span class="chip">Everyone</span><span class="chip plain">Exact to the cent</span></div>
+          <p>The info page shows the group total and a balance for every person. Green means they are owed money, red means they owe. Tap <b>Settle up</b> to see the simplest way to square everything.</p>
+          <div class="chips"><span class="chip">Everyone</span></div>
           <div class="try">
-            <h3>Try it</h3>
             <ol>
               <li>Open a group and go to its info page.</li>
-              <li>Read each person's balance pill.</li>
+              <li>Read each person balance.</li>
               <li>Tap <b>Settle up</b> to see who should pay whom.</li>
             </ol>
           </div>
@@ -6260,12 +6230,11 @@ html,body{margin:0!important;padding:0!important;background:transparent!importan
       <!-- 07 PAYMENTS -->
       <article class="feature reveal" id="payments">
         <div class="copy">
-          <span class="num"><b>07</b> Close the loop</span>
+          <span class="num"><b>07</b> Verify Payments</span>
           <h2>Record payments with two ticks</h2>
           <p>When money changes hands, note it in suma. The sender taps <b>Paid</b> and the receiver taps <b>Got it</b>. Two ticks turn blue when both sides agree. suma never moves money. It simply keeps the record honest.</p>
           <div class="chips"><span class="chip">Sender and receiver confirm</span><span class="chip plain">Money stays offline</span></div>
           <div class="try">
-            <h3>Try it</h3>
             <ol>
               <li>Tap <b>Add payment</b>, then choose From, To, amount and date.</li>
               <li>Sender: open the payment and tap <b>I sent it · Paid</b>.</li>
@@ -6843,7 +6812,7 @@ svg.ic.star{fill:var(--gold);stroke:var(--gold);width:13px;height:13px}
   &lt;div class=&quot;apick-row&quot;&gt;&lt;div class=&quot;apick on&quot;&gt;&lt;div class=&quot;avatar av-pr&quot; style=&quot;width:44px;height:44px;font-size:15px;&quot;&gt;PR&lt;/div&gt;&lt;span&gt;Priya&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;apick&quot;&gt;&lt;div class=&quot;avatar av-rk&quot; style=&quot;width:44px;height:44px;font-size:15px;&quot;&gt;RK&lt;/div&gt;&lt;span&gt;Rahul&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;apick&quot;&gt;&lt;div class=&quot;avatar av-ar&quot; style=&quot;width:44px;height:44px;font-size:15px;&quot;&gt;AR&lt;/div&gt;&lt;span&gt;Aryan&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;apick&quot;&gt;&lt;div class=&quot;avatar av-kr&quot; style=&quot;width:44px;height:44px;font-size:15px;&quot;&gt;KR&lt;/div&gt;&lt;span&gt;Karan&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;apick&quot;&gt;&lt;div class=&quot;avatar av-me&quot; style=&quot;width:44px;height:44px;font-size:15px;&quot;&gt;ME&lt;/div&gt;&lt;span&gt;Meera&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&quot;amount-field&quot; style=&quot;margin-top:4px&quot;&gt;&lt;span class=&quot;currency&quot;&gt;₹&lt;/span&gt;&lt;span class=&quot;amount&quot;&gt;1,200&lt;/span&gt;&lt;div class=&quot;desc&quot;&gt;Rahul pays Priya&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&quot;field&quot;&gt;&lt;div class=&quot;input-label&quot;&gt;Actual payment date&lt;/div&gt;&lt;input class=&quot;input-field&quot; value=&quot;4 Nov 2026&quot; readonly&gt;&lt;/div&gt;
-  &lt;div class=&quot;note-card&quot;&gt;&lt;svg class=&quot;ic&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot;/&gt;&lt;line x1=&quot;12&quot; y1=&quot;11&quot; x2=&quot;12&quot; y2=&quot;16.5&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;7.8&quot; r=&quot;.6&quot;/&gt;&lt;/svg&gt;&lt;div&gt;Money is offline. This app only notes it.&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;note-card&quot;&gt;&lt;svg class=&quot;ic&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot;/&gt;&lt;line x1=&quot;12&quot; y1=&quot;11&quot; x2=&quot;12&quot; y2=&quot;16.5&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;7.8&quot; r=&quot;.6&quot;/&gt;&lt;/svg&gt;&lt;div&gt;Money is offline. Suma only notes it.&lt;/div&gt;&lt;/div&gt;
   &lt;button class=&quot;pill-btn&quot;&gt;Save&lt;/button&gt;
 &lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;home-bar&quot;&gt;&lt;div class=&quot;home-bar-pill&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
             </div></div>
@@ -7436,12 +7405,11 @@ svg.ic.star{fill:var(--gold);stroke:var(--gold);width:13px;height:13px}
         <div class="copy">
           <span class="num"><b>08</b> For organisers</span>
           <h2>Keep the group tidy as it changes</h2>
-          <p>Admins can rename people, make other admins, and bring a late joiner into earlier bills. If someone leaves the trip, you can remove them, but only once their balance is zero, so nobody is left holding a debt. Joined with the wrong account? Unlink it in one tap.</p>
+          <p>Admins can rename people, make other admins and bring a late joiner into earlier bills. Admin can remove members after their balance is zero, so nobody is left holding a debt. Joined with the wrong account? Unlink it in one tap.</p>
           <div class="chips"><span class="chip">Admin only</span><span class="chip plain">Debt-safe removal</span></div>
           <div class="try">
-            <h3>Try it</h3>
             <ol>
-              <li>On the group's info page, tap a person.</li>
+              <li>On the group info page, tap a person.</li>
               <li>Choose <b>Make admin</b>, <b>Add to old bills</b>, <b>Remove</b>, or <b>Unlink wrong account</b>.</li>
               <li>Removing says <b>Edit bills before removing</b> if they still owe or are owed.</li>
             </ol>
@@ -8027,16 +7995,15 @@ svg.ic.star{fill:var(--gold);stroke:var(--gold);width:13px;height:13px}
       <!-- 09 PERSONALISE -->
       <article class="feature reveal" id="themes">
         <div class="copy">
-          <span class="num"><b>09</b> Make it yours</span>
-          <h2>Two looks, one app</h2>
-          <p><b>Minimal</b> is quiet and compact. <b>Verbose</b> spells things out with richer cards and labelled buttons. Switch any time from the gear on Home. Your data is identical either way. There is a help button on every page, and you can install suma on your phone like any other app.</p>
-          <div class="chips"><span class="chip">Everyone</span><span class="chip plain">Install on your phone</span></div>
+          <span class="num"><b>09</b>Select Minimal or Verbose Theme</span>
+          <h2>Two looks, same website</h2>
+          <p><b>Minimal</b> is quiet and compact. <b>Verbose</b> spells things out with richer cards and labelled buttons. Switch any time from the gear on Home. Your data is identical either way. There is a help button on every page, and you can add <b>suma.n3m.in</b> to your home screen.</p>
+          <div class="chips"><span class="chip">Everyone</span><span class="chip plain">Add website to home screen</span></div>
           <div class="try">
-            <h3>Try it</h3>
             <ol>
               <li>On Home, tap the <b>gear</b> and choose Minimal or Verbose.</li>
               <li>Stuck on a screen? Tap the <b>?</b> in the corner for help.</li>
-              <li>Use your browser's <b>Add to Home screen</b> (or Install) to keep suma one tap away.</li>
+              <li>Use your browser <b>Add to Home screen</b> to access suma.n3m.in easily.</li>
             </ol>
           </div>
         </div>
@@ -8612,8 +8579,8 @@ svg.ic.star{fill:var(--gold);stroke:var(--gold);width:13px;height:13px}
 &lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;dim&quot;&gt;&lt;/div&gt;
 &lt;div class=&quot;sheet&quot;&gt;
-  &lt;div class=&quot;sheet-head&quot;&gt;&lt;b&gt;App theme&lt;/b&gt;&lt;span class=&quot;ib&quot;&gt;&lt;svg class=&quot;ic&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/div&gt;
-  &lt;p class=&quot;hint&quot;&gt;Choose how the app looks. Your data stays the same.&lt;/p&gt;
+  &lt;div class=&quot;sheet-head&quot;&gt;&lt;b&gt;Website theme&lt;/b&gt;&lt;span class=&quot;ib&quot;&gt;&lt;svg class=&quot;ic&quot; viewBox=&quot;0 0 24 24&quot;&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;/&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;/&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;p class=&quot;hint&quot;&gt;Choose how the website looks. Your data stays the same.&lt;/p&gt;
   &lt;div class=&quot;opts&quot;&gt;&lt;div class=&quot;opt&quot;&gt;&lt;div class=&quot;pv&quot;&gt;&lt;i class=&quot;b1&quot;&gt;&lt;/i&gt;&lt;i class=&quot;b2&quot;&gt;&lt;/i&gt;&lt;i class=&quot;r&quot;&gt;&lt;/i&gt;&lt;i class=&quot;r&quot;&gt;&lt;/i&gt;&lt;i class=&quot;r&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;span&gt;Minimal&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;opt on&quot;&gt;&lt;div class=&quot;pv v&quot;&gt;&lt;i class=&quot;b1&quot;&gt;&lt;/i&gt;&lt;i class=&quot;b2&quot;&gt;&lt;/i&gt;&lt;i class=&quot;r c&quot;&gt;&lt;/i&gt;&lt;i class=&quot;r c&quot;&gt;&lt;/i&gt;&lt;i class=&quot;r c&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;span&gt;Verbose&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;&lt;div class=&quot;home-bar&quot;&gt;&lt;div class=&quot;home-bar-pill&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;"></iframe>
             </div></div>
@@ -8675,7 +8642,7 @@ svg.ic.star{fill:var(--gold);stroke:var(--gold);width:13px;height:13px}
           <summary>How do I invite a friend?</summary>
           <div class="answer">
             <ol>
-              <li>Open the group's info page and tap <b>Add person</b>.</li>
+              <li>Open the group info page and tap <b>Add person</b>.</li>
               <li>Type their name and share the invite link or code.</li>
               <li>They sign up, join with the code, and pick their name.</li>
             </ol>
@@ -8692,7 +8659,7 @@ svg.ic.star{fill:var(--gold);stroke:var(--gold);width:13px;height:13px}
         </details>
 
         <details>
-          <summary>Someone left the trip. How do I remove them?</summary>
+          <summary>Someone left the event. How do I remove them?</summary>
           <div class="answer">
             <p>Open the person and tap <b>Remove</b>. If they still owe or are owed money, suma asks you to edit the bills first so their balance is zero. This keeps debts from disappearing.</p>
             <a href="#admin">Admin tools</a>
@@ -8704,7 +8671,7 @@ svg.ic.star{fill:var(--gold);stroke:var(--gold);width:13px;height:13px}
           <div class="answer">
             <ol>
               <li>Open the info page and tap <b>Settle up</b> to see who pays whom.</li>
-              <li>Pay each other outside the app, in cash or by bank transfer.</li>
+              <li>Pay each other outside the <b>suma</b>, in cash or by bank transfer.</li>
               <li>Record each payment in suma. The sender taps <b>Paid</b>, the receiver taps <b>Got it</b>.</li>
             </ol>
             <a href="#payments">See it in action</a>
@@ -8737,7 +8704,7 @@ svg.ic.star{fill:var(--gold);stroke:var(--gold);width:13px;height:13px}
         <details>
           <summary>Can I put it on my home screen?</summary>
           <div class="answer">
-            <p>Yes. In your phone's browser, choose <b>Add to Home screen</b> (or <b>Install app</b>). suma then opens full screen like any other app.</p>
+            <p>Yes. In your phone browser, choose <b>Add to Home screen</b>. suma.n3m.in then opens full screen like any other app.</p>
           </div>
         </details>
       </div>
@@ -8754,10 +8721,10 @@ svg.ic.star{fill:var(--gold);stroke:var(--gold);width:13px;height:13px}
           <circle cx="15.8" cy="15.8" r="1.65" fill="#000"/>
           <path d="M7.5 16.5 16.5 7.5" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round"/>
         </svg>
-        <h2 id="final-h">Planning a trip? Start the group today.</h2>
-        <p>Create it in a minute, invite the crew, and let suma keep score from the first coffee to the last taxi.</p>
+        <h2 id="final-h">Need to share bills? Start the group today.</h2>
+        <p>Create it in a minute, invite members, and let suma keep track of balance from the first coffee to the last taxi.</p>
         <div class="cta-row">
-          <a class="btn btn-gold" href="https://suma.n3m.in">Sign up and start your trip</a>
+          <a class="btn btn-gold" href="https://suma.n3m.in">Sign up and start your group</a>
           <a class="btn btn-ghost" href="#guide">Read the quick guide</a>
         </div>
       </div>
@@ -8773,7 +8740,7 @@ svg.ic.star{fill:var(--gold);stroke:var(--gold);width:13px;height:13px}
       <small>Share Bills. Easy.</small>
     </div>
     <!-- EDIT: replace the href with your contact URL -->
-    <a class="contact" href="https://example.com/contact" rel="noopener">Contact us</a>
+    <a class="contact" href="https://contact.n3m.in" rel="noopener">Contact</a>
   </div>
 </footer>
 
@@ -8815,6 +8782,45 @@ svg.ic.star{fill:var(--gold);stroke:var(--gold);width:13px;height:13px}
     }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
     items.forEach(function (i) { io.observe(i); });
   })();
+  
+  // Typewriter headline: type a phrase, hold, delete, then the next one.
+(function () {
+  var el = document.querySelector(".typed");
+  if (!el) return;
+  var phrases;
+  try { phrases = JSON.parse(el.getAttribute("data-phrases")); } catch (e) { return; }
+  if (!phrases || !phrases.length) return;
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var lead = document.createTextNode("");
+  var em = document.createElement("em");
+  el.textContent = "";
+  el.appendChild(lead);
+  el.appendChild(em);
+
+  var i = 0, n = 0, deleting = false;
+  function paint() {
+    var p = phrases[i], v = p[0] + " ", full = v + p[1];
+    lead.nodeValue = full.slice(0, Math.min(n, v.length));
+    em.textContent = n > v.length ? full.slice(v.length, n) : "";
+  }
+  function tick() {
+    var p = phrases[i], len = p[0].length + 1 + p[1].length;
+    if (!deleting) {
+      n++; paint();
+      if (n >= len) { deleting = true; return setTimeout(tick, 1500); }
+      return setTimeout(tick, 70);
+    }
+    n--; paint();
+    if (n <= 0) { deleting = false; i = (i + 1) % phrases.length; return setTimeout(tick, 350); }
+    setTimeout(tick, 35);
+  }
+  // Start with the first phrase fully shown, hold, then begin deleting.
+  n = phrases[0][0].length + 1 + phrases[0][1].length;
+  paint();
+  deleting = true;
+  setTimeout(tick, 1800);
+})();
 </script>
 </body>
 </html>
