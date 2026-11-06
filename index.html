@@ -8790,7 +8790,6 @@ svg.ic.star{fill:var(--gold);stroke:var(--gold);width:13px;height:13px}
   var phrases;
   try { phrases = JSON.parse(el.getAttribute("data-phrases")); } catch (e) { return; }
   if (!phrases || !phrases.length) return;
-  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   var lead = document.createTextNode("");
   var em = document.createElement("em");
